@@ -8,6 +8,11 @@ namespace eManager.Web.Controllers
 {
     public class HomeController : Controller
     {
+        public string HelloWorld()
+        {
+            return 'Hello world!';
+        }
+
         public ActionResult Index()
         {
             return View();
