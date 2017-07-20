@@ -10,7 +10,7 @@ namespace eManager.Web.Controllers
     {
         public string HelloWorld()
         {
-            return 'Hello world!';
+            return "Hello world!";
         }
 
         public ActionResult Index()
