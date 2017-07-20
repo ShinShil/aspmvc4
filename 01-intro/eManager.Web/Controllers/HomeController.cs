@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eManager.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,14 +9,17 @@ namespace eManager.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public string HelloWorld()
+        private IDepartmentDataSource _db;
+
+        public HomeController(IDepartmentDataSource db)
         {
-            return "Hello world!";
+            _db = db;
         }
 
         public ActionResult Index()
         {
-            return View();
+            var allDepartments = _db.Departments;
+            return View(allDepartments);
         }
 
         public ActionResult About()
