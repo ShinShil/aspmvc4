@@ -27,6 +27,7 @@ namespace eManager.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(CreateEmployeeViewModel model)
         {
             if (ModelState.IsValid)

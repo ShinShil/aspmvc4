@@ -1,12 +1,21 @@
-﻿using System.Web.Mvc;
+﻿using eManager.Domain;
+using System.Web.Mvc;
 
 namespace IdentitySample.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IDepartmentDataSource _db;
+
+        public HomeController(IDepartmentDataSource db)
+        {
+            _db = db;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var departments = _db.Departments;
+            return View(departments);
         }
 
         [Authorize]
