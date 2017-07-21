@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace eManager.Web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class EmployeeController : Controller
     {
         private readonly IDepartmentDataSource _db;
