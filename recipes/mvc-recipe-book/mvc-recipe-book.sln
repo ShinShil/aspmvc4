@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mvcRecipeBook.Domain", "mvcRecipeBook.Domain\mvcRecipeBook.Domain.csproj", "{A4BF3A25-9C35-4640-81C2-BF2510EAAA26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mvcRecipeBook.Web", "mvcRecipeBook.Web\mvcRecipeBook.Web.csproj", "{F2E85AFD-52CE-4B48-8F61-D9FBE01D490E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4BF3A25-9C35-4640-81C2-BF2510EAAA26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4BF3A25-9C35-4640-81C2-BF2510EAAA26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4BF3A25-9C35-4640-81C2-BF2510EAAA26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4BF3A25-9C35-4640-81C2-BF2510EAAA26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2E85AFD-52CE-4B48-8F61-D9FBE01D490E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2E85AFD-52CE-4B48-8F61-D9FBE01D490E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2E85AFD-52CE-4B48-8F61-D9FBE01D490E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2E85AFD-52CE-4B48-8F61-D9FBE01D490E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

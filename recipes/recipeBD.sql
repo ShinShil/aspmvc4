@@ -1,7 +1,7 @@
 
 
 create table recipe (
-	id int primary key auto_increment,
+	id int primary key AUTO_INCREMENT,
 	name varchar(255),
 	imageUrl varchar(255),
 	description text

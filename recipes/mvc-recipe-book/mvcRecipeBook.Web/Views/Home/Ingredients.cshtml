@@ -1,0 +1,49 @@
+﻿@model IEnumerable<mvcRecipeBook.Domain.Ingredient>
+
+@{
+    ViewBag.Title = "Ingredients";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+    <h2>Ingredients</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <form>
+            <div class="row">
+                <div class="col-sm-3 form-group">
+                    <label class="control-label" for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Name">
+                </div>
+                <div class="col-sm-2 form-group">
+                    <label class="control-label" for="amount">Amount</label>
+                    <input type="text" class="form-control" id="amount" placeholder="Amount">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <button class="btn btn-success">Add</button>
+                    <button class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-xs-12">
+        <ul class="list-group">
+            @foreach (var ingredient in Model)
+            {
+                <a style="cursor:pointer" class="list-group-item">@ingredient.Name | @ingredient.Amount</a>
+            }
+        </ul>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<mvcRecipeBook.Domain.Recipe>
+
+@{
+    ViewBag.Title = "Recipes";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h2>Recipes</h2>
+        <button class="btn btn-success">Create</button>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-xs-6">
+        <ul class="list-group">
+            @foreach(var recipe in Model)
+            {
+                <a style="cursor:pointer" class="list-group-item">@recipe.Name</a>
+            }
+    
+        </ul>
+    </div>
+    <div class="col-xs-6">
+        <h3>Recipe detail</h3>
+    </div>
+</div>
