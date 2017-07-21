@@ -197,7 +197,9 @@
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IngredientController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RecipeController.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
     <Compile Include="DependencyResolution\SmDependencyResolver.cs" />
     <Compile Include="Global.asax.cs">
@@ -268,8 +270,10 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Recipes.cshtml" />
     <Content Include="Views\Home\Ingredients.cshtml" />
+    <Content Include="Views\Recipe\Index.cshtml" />
+    <Content Include="Views\Recipe\Details.cshtml" />
+    <Content Include="Views\Ingredient\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

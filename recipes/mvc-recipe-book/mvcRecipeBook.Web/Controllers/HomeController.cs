@@ -9,31 +9,15 @@ namespace mvcRecipeBook.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private IRecipeBookDataSource _db;
-
-        public HomeController(IRecipeBookDataSource db)
+        public HomeController()
         {
-            _db = db;
+
         }
 
         public ActionResult Index()
         {
             return View();
-        }
-
-        public ActionResult Recipes()
-        {
-            var recipes = _db.Recipes;
-
-            return View(recipes);
-        }
-
-        public ActionResult Ingredients()
-        {
-            var ingredients = _db.Ingredients;
-
-            return View(ingredients);
-        }
+        }       
 
         public ActionResult About()
         {

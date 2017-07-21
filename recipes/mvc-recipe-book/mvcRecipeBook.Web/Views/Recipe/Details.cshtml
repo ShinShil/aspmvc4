@@ -1,0 +1,35 @@
+﻿@model mvcRecipeBook.Domain.Recipe
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h1>@Model.Name</h1>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-xs-12">
+        <img alt="samoe picture" src="@Model.ImageUrl" class="image-responsive" style="max-height:300px;"/>
+    </div>
+</div>
+<div class="row">
+    <p>
+        @Model.Description
+    </p>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Ingredients</h3>
+    </div>
+</div>
+<div class="row">
+    @foreach(var ingredient in Model.Ingredients)
+    {
+        <div class="col-xs-12">
+            @ingredient.Name - @ingredient.Amount    
+        </div>
+    }
+</div>
