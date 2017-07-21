@@ -16,7 +16,7 @@
         <ul class="list-group">
             @foreach (var recipe in Model)
             {
-                <a style="cursor:pointer" class="list-group-item">@recipe.Name</a>
+                @Html.ActionLink(recipe.Name, "details", new { id = recipe.Id }, new { @class = "list-group-item"})
             }
 
         </ul>

@@ -1,8 +1,6 @@
-﻿using Microsoft.Owin;
-using Owin;
+﻿using Owin;
 
-[assembly: OwinStartupAttribute(typeof(mvcRecipeBook.Web.Startup))]
-namespace mvcRecipeBook.Web
+namespace IdentitySample
 {
     public partial class Startup
     {

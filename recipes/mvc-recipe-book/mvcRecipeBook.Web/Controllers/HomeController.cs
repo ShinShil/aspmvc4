@@ -1,27 +1,18 @@
-﻿using mvcRecipeBook.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
-namespace mvcRecipeBook.Web.Controllers
+namespace IdentitySample.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController()
-        {
-
-        }
-
         public ActionResult Index()
         {
             return View();
-        }       
+        }
 
+        [Authorize]
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Your app description page.";
 
             return View();
         }
