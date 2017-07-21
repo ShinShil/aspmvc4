@@ -32,5 +32,10 @@ namespace mvcRecipeBook.Web.Infrastructure
                 return Ingredients;
             }
         }
+
+        public void Save()
+        {
+            SaveChanges();
+        }
     }
 }

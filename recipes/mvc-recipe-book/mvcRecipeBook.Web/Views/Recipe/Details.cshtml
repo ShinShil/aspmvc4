@@ -12,13 +12,20 @@
 <hr />
 <div class="row">
     <div class="col-xs-12">
-        <img alt="samoe picture" src="@Model.ImageUrl" class="image-responsive" style="max-height:300px;"/>
+        <img alt="samoe picture" src="@Model.ImageUrl" class="image-responsive" style="max-height:300px;" />
     </div>
 </div>
 <div class="row">
-    <p>
-        @Model.Description
-    </p>
+    <div class="col-xs-12">
+        <p>
+            @Model.Description
+        </p>
+    </div>
+    <div class="col-xs-12">
+        <p>
+            @Html.ActionLink("Add ingredient", "Create", new { controller = "Ingredient", RecipeID = Model.Id }, new { @class = "btn btn-success" })
+        </p>
+    </div>
 </div>
 <div class="row">
     <div class="col-xs-12">
@@ -26,10 +33,10 @@
     </div>
 </div>
 <div class="row">
-    @foreach(var ingredient in Model.Ingredients)
+    @foreach (var ingredient in Model.Ingredients)
     {
         <div class="col-xs-12">
-            @ingredient.Name - @ingredient.Amount    
+            @ingredient.Name - @ingredient.Amount
         </div>
     }
 </div>

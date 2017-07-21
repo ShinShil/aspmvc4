@@ -6,5 +6,7 @@ namespace mvcRecipeBook.Domain
     {
         IQueryable<Recipe> Recipes { get; }
         IQueryable<Ingredient> Ingredients { get; }
+
+        void Save();
     }
 }
