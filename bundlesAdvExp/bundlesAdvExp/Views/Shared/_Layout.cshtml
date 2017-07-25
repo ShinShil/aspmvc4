@@ -1,0 +1,15 @@
+﻿@using ServiceStack.Html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>    
+    @Html.RenderCssBundle("~/Content/header.css.bundle", BundleOptions.MinifiedAndCombined)
+    @Html.RenderJsBundle("~/Scripts/header.js.bundle", BundleOptions.Minified)
+</head>
+<body>
+    <div class="btn btn-success">Boot strap btn</div>    
+    @RenderBody()
+</body>
+</html>

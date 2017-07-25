@@ -2,6 +2,10 @@
     ViewBag.Title = "Index";
 }
 
+@Styles.Render("/Content/Css")
+
+<link href="@BundleTable.Bundles.ResolveBundleUrl("~/Content/Css")" rel="stylesheet" type="text/css" />
+
 <h2>Home</h2>
 
 <div>This is a simple home page, but it sure does require a lot of scripts and styles!</div>
