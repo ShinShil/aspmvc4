@@ -19,12 +19,13 @@ namespace ConsoleClient
             if(result.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var doc = XDocument.Load(result.Content.ReadAsStreamAsync().Result);
-                var ns = (XNamespace)"http://schemas.datacontract.org/2004/07/Videos.Models";
+                var ns = (XNamespace)"http://schemas.datacontract.org/2004/07/_04_WebAPI.Models";
                 foreach(var title in doc.Descendants(ns + "Title"))
                 {
                     Console.WriteLine(title.Value);
                 }
             }
+            Console.ReadLine();
         }
     }
 }
