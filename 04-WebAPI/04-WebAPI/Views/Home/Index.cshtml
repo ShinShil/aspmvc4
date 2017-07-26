@@ -5,6 +5,9 @@
 <div id="videoTableOutput">
 
 </div>
+<div id="videoEditOutput">
+
+</div>
 
 <script id="videoTable" type="text/html">
     <table>
@@ -26,6 +29,19 @@
             {{/each}}
         </tbody>
     </table>
+    <button id="createVideo" style="margin: 15px 0">Create video</button>
+</script>
+
+<script type="text/html" id="videoEdit">
+    <hr />
+    <form>
+        <input type="text" name="id" value="{{Id}}" hidden id="id" />
+        <label for="title">Title</label>
+        <input type="text" name="title" required value="{{Title}}" id="title" />
+        <label for="Length">Length</label>
+        <input type="number" min="0" max="200" required name="length" value="{{Length}}" id="length" />
+        <input type="button" name="saveVideo" value="Save video" id="saveVideo" />
+    </form>
 </script>
 
 @section scripts {
@@ -44,8 +60,29 @@
                 return $.ajax(videoApiUrl);
             }
 
+            var getVideo = function (id) {
+                return $.ajax(videoApiUrl + '/' + id)
+            };
+
+            var updateVideo = function (video) {
+                return $.ajax(videoApiUrl + "/" + video.Id, {
+                    type: "PUT",
+                    data: video
+                })
+            }
+
+            var addVideo = function (video) {
+                return $.ajax(videoApiUrl, {
+                    type: "POST",
+                    data: video
+                });
+            }
+
             return {
+                addVideo: addVideo,
                 getVideos: getVideos,
+                getVideo: getVideo,
+                updateVideo: updateVideo
             }
 
         }());
@@ -59,15 +96,69 @@
                 $('#videoTableOutput').html(output);
             }
 
+            var showVideoEdit = function (video) {
+                var output = templates.videoEdit(video);
+                $('#videoEditOutput').html(output);
+            }
+
             var refreshVideos = function () {
                 videoServer.getVideos().done(showAllVideos);
             }
 
             var compileTemplates = function () {
-                templates.videoTable = Handlebars.compile($('#videoTable').html())
+                templates.videoTable = Handlebars.compile($('#videoTable').html());
+                templates.videoEdit = Handlebars.compile($('#videoEdit').html());
             }
 
+            var editVideo = function () {
+                var id = getId(this);
+                videoServer.getVideo(id).done(showVideoEdit);
+            }
+
+            var clearEdit = function () {
+                $('#videoEditOutput').empty();
+
+            }
+
+            var saveVideo = function () {
+                var video = {
+                    "Id": $("#id").val(),
+                    "Title": $("#title").val(),
+                    "Length": $("#length").val(),
+                }
+
+                var operation;
+                if (video.Id != "0") {
+                    operation = videoServer.updateVideo(video);
+                } else {
+                    operation = videoServer.addVideo(video);
+                }
+                operation.done(refreshVideos, clearEdit);
+                return false;
+            }
+
+            var createVideo = function () {
+                var video = {
+                    "Id": "0",
+                    "Title": '',
+                    "Length": '',
+                }
+                showVideoEdit(video);
+            }
+
+            var wireEvents = function () {
+                $(document).on('click', '.editVideo', editVideo);
+                $(document).on('click', '#saveVideo', saveVideo);
+                $(document).on('click', '#createVideo', createVideo);
+                //$(document).on('click', '.deleteVideo', deleteVideo);
+            }
+
+            var getId = function (element) {
+                return $(element).parents("tr").attr("data-id");
+            };
+
             $(function () {
+                wireEvents();
                 compileTemplates();
                 refreshVideos();
             });
